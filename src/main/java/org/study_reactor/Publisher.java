@@ -6,6 +6,9 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 public class Publisher {
+    // Publisher가 데이터를 발행, Subscriber가 데이터를 구독/소비
+    // Flux: 다수의 아이템을 가질 수 있는 데이터 스트림
+    // Mono: 단일값의 아이템을 가지는 데이터 스트림
     
     public Flux<Integer> startFlux() {
         // return Flux.just(1, 2, 3, 4, 5);
