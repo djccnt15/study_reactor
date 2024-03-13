@@ -97,4 +97,47 @@ class OperatorTest {
             .expectNext(3)
             .verifyComplete();
     }
+    
+    @Test
+    void fluxCount() {
+        StepVerifier.create(operator.fluxCount())
+            .expectNext(10L)
+            .verifyComplete();
+    }
+    
+    @Test
+    void fluxDistinct() {
+        StepVerifier.create(operator.fluxDistinct())
+            .expectNext(1, 2, 3)
+            .verifyComplete();
+    }
+    
+    @Test
+    void fluxReduce() {
+        StepVerifier.create(operator.fluxReduce())
+            .expectNext(55)
+            .verifyComplete();
+    }
+    
+    @Test
+    void fluxGroupBy() {
+        StepVerifier.create(operator.fluxGroupBy())
+            .expectNext(30)
+            .expectNext(25)
+            .verifyComplete();
+    }
+    
+    @Test
+    void fluxDelayAndLimit() {
+        StepVerifier.create(operator.fluxDelayAndLimit())
+            .expectNext(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+            .verifyComplete();
+    }
+    
+    @Test
+    void fluxSample() {
+        StepVerifier.create(operator.fluxSample())
+            .expectNextCount(100)
+            .verifyComplete();
+    }
 }
